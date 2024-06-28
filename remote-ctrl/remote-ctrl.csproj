@@ -6,13 +6,18 @@
     <RootNamespace>remote_ctrl</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <PublishAot>True</PublishAot>
+    <PublishAot>False</PublishAot>
     <InvariantGlobalization>true</InvariantGlobalization>
     <StartupObject>remote_ctrl.Program</StartupObject>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <SignAssembly>False</SignAssembly>
     <SupportedOSPlatformVersion>8.0</SupportedOSPlatformVersion>
+    <ApplicationIcon>remote-controller-svgrepo-com.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="remote-controller-svgrepo-com.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.8" />

@@ -1,18 +1,12 @@
 # remote-ctrl
 
-port 1384
+port: `1384`
 
 ## setup service
 
 1. publish
-2. setup service 
-
-sc CREATE RemoteCtrl binPath="C:\Users\user\source\repos\remote-ctrl\remote-ctrl\bin\Release\net8.0-windows10.0.17763.0\win-x64\remote-ctrl.exe"
-sc START RemoteCtrl
-
-remove it
-
-sc DELETE RemoteCtrl
+2. install click once application
+3. add as startup app: https://support.microsoft.com/en-us/windows/add-an-app-to-run-automatically-at-startup-in-windows-10-150da165-dcd9-7230-517b-cf3c295d89dd
 
 ## sources
 
