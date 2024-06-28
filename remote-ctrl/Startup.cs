@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Hosting;
+using System.Diagnostics;
 
 namespace remote_ctrl
 {
@@ -16,7 +18,6 @@ namespace remote_ctrl
                 app.UseHsts();
 
             app.UseRouting();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGet("/{action}", async context =>
@@ -53,6 +54,21 @@ namespace remote_ctrl
                                                 }
 
                     await context.Response.WriteAsync("OK" + action);
+                });
+
+                endpoints.MapPost("/open-url", async context =>
+                {
+                    var q = context.Request.Query;
+                    var url = q["url"].ToString();
+
+                    if (url is null)
+                    {
+                        await context.Response.WriteAsync("Pleas provide url");
+                    } else
+                    {
+                        Process.Start("rundll32", "url.dll,FileProtocolHandler " + url);
+                        await context.Response.WriteAsync("OK");
+                    }
                 });
             });
         }
